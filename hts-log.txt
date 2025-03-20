@@ -1,0 +1,28 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 19 Mar 2025 22:51:20 at http://www.slipstreamcity.com +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qYC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" -Y http://www.slipstreamcity.com -O1 "C:\Users\C2SDK\Documents\www.slipstreamcity.com\slipstreamcity" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+22:55:47	Warning: 	Moved Permanently for facebook.com/robots.txt
+22:55:47	Warning: 	Redirected link is identical because of 'URL Hack' option: facebook.com/robots.txt and https://facebook.com/robots.txt
+22:55:47	Warning: 	Warning moved treated for facebook.com/robots.txt (real one is https://facebook.com/robots.txt)
+22:55:47	Warning: 	Moved Permanently for facebook.com/
+22:55:47	Warning: 	Redirected link is identical because of 'URL Hack' option: facebook.com/ and https://facebook.com/
+22:55:47	Warning: 	File has moved from facebook.com/ to https://facebook.com/
+22:55:48	Warning: 	Moved Permanently for twitter.com/robots.txt
+22:55:48	Warning: 	Redirected link is identical because of 'URL Hack' option: twitter.com/robots.txt and https://twitter.com/robots.txt
+22:55:48	Warning: 	Warning moved treated for twitter.com/robots.txt (real one is https://twitter.com/robots.txt)
+22:55:48	Warning: 	Moved Permanently for twitter.com/
+22:55:48	Warning: 	Redirected link is identical because of 'URL Hack' option: twitter.com/ and https://twitter.com/
+22:55:48	Warning: 	File has moved from twitter.com/ to https://twitter.com/
+22:55:48	Warning: 	Moved Permanently for plus.google.com/robots.txt
+22:55:48	Warning: 	File has moved from plus.google.com/robots.txt to https://workspaceupdates.googleblog.com/2023/04/new-community-features-for-google-chat-and-an-update-currents%20.html
+22:55:48	Warning: 	Moved Permanently for plus.google.com/
+22:55:48	Warning: 	File has moved from plus.google.com/ to https://workspaceupdates.googleblog.com/2023/04/new-community-features-for-google-chat-and-an-update-currents%20.html
+22:55:48	Error: 	"Not Found" (404) at link www.slipstreamcity.com/css!starfield/sf.core.css (from img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1)
+
+HTTrack Website Copier/3.49-2 mirror complete in 6 minutes 28 seconds : 129 links scanned, 119 files written (11072619 bytes overall) [10616942 bytes received at 27363 bytes/sec], 9717434 bytes transferred using HTTP compression in 56 files, ratio 91%, 3.3 requests per connection
+(1 errors, 16 warnings, 0 messages)
