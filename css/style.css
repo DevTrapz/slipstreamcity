@@ -12,6 +12,9 @@
   --column: 760px;
 }
 
+/* Pages that use a pure white canvas instead of the default (Credits) */
+.page--white { --canvas: #fff; }
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
