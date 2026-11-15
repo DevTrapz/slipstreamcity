@@ -1,0 +1,331 @@
+/* Slipstream City — shared styles */
+
+:root {
+  --canvas: #fcfcfc;
+  --text: #333;
+  --band: #c6c6c5;
+  --footer: #333;
+  --footer-text: #9a9a9a;
+  --header-text: #f0ffff;
+  --serif: "Josefin Slab", Georgia, serif;
+  --title: Georgia, "Times New Roman", serif;
+  --column: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  /* Sticky footer: main grows to fill, so the footer sits at the bottom of
+     the viewport even on short pages */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--canvas);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; }
+
+/* ---------- Header / hero ---------- */
+
+.hero {
+  position: relative;
+  min-height: 440px;
+  background-color: #222;
+  background-size: cover;
+  background-position: center bottom;
+  color: var(--header-text);
+}
+
+.hero::before {               /* darkens the top so the name + nav stay readable */
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 180px;
+  background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.hero--tall { min-height: 620px; background-position: center; }
+
+.hero--light { color: var(--text); background-color: #fff; }
+.hero--light::before { display: none; }
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 10px 24px 8px;
+  border-bottom: 2px solid currentColor;
+}
+
+.site-name {
+  font-size: 36px;
+  line-height: 1.3;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ---------- Navigation ---------- */
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, .92);
+  border-radius: 4px;
+  padding: 4px 6px;
+}
+
+.nav li { position: relative; }
+
+.nav a {
+  display: block;
+  padding: 2px 13px;
+  color: var(--text);
+  font-size: 18px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] { text-decoration: underline; }
+
+.nav .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  padding: 6px 0;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+}
+
+.nav .submenu a { font-size: 15px; padding: 5px 14px; }
+
+.nav li:hover > .submenu,
+.nav li:focus-within > .submenu { display: block; }
+
+/* ---------- Page title ---------- */
+
+.page-title {
+  position: relative;
+  margin: 0;
+  padding: 40px 24px 60px;
+  font-family: var(--title);
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 1.4;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .35);
+}
+
+.hero--light .page-title,
+.page-title--dark { color: var(--text); text-shadow: none; }
+
+/* Last House hero: picture on the left, title on the right */
+.hero-split {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 8px 24px 0;
+}
+.hero-split img { width: 40%; max-width: 400px; }
+.hero-split .page-title { flex: 1; font-size: 48px; padding: 0; text-align: right; }
+.hero-split .page-title small {
+  display: block;
+  font-size: 22px;
+}
+
+/* ---------- Quote band ---------- */
+
+.quote-band {
+  margin: 0;
+  padding: 28px 24px;
+  background: var(--band);
+  color: #000;
+  font-size: 34px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.quote-band p { max-width: 1000px; margin: 0 auto; }
+.quote-band p + p { margin-top: .4em; }
+.quote-band cite { font-style: normal; }
+
+/* ---------- Main content ---------- */
+
+main { flex: 1 0 auto; }
+.site-footer { flex-shrink: 0; }
+
+.section { padding: 48px 24px 64px; }
+
+.content {
+  max-width: var(--column);
+  margin: 0 auto;
+}
+
+.content p { margin: 0 0 1.4em; }
+.content h2 {
+  margin: 0 0 1em;
+  font-size: 1em;
+  font-weight: normal;
+  text-decoration: underline;
+}
+.content h3 {
+  margin: 1.4em 0 .4em;
+  font-size: 1em;
+}
+.content .center { text-align: center; }
+.content .divider { letter-spacing: .2em; overflow: hidden; white-space: nowrap; }
+
+/* Character drawings that sit beside the text */
+.pull-left,
+.pull-right {
+  width: 40%;
+  margin-top: .3em;
+  margin-bottom: 1em;
+}
+.pull-left  { float: left;  margin-right: 28px; }
+.pull-right { float: right; margin-left: 28px; }
+
+/* On wide screens let the drawings hang out into the margins, like the original */
+@media (min-width: 1100px) {
+  .pull-left, .pull-right { width: 340px; }
+  .pull-left  { margin-left: -250px; }
+  .pull-right { margin-right: -250px; }
+}
+@media (min-width: 1400px) {
+  .pull-left, .pull-right { width: 380px; }
+  .pull-left  { margin-left: -300px; }
+  .pull-right { margin-right: -300px; }
+}
+
+/* .pull-out: drawing sits entirely in the side margin, its inner edge
+   lined up against the text column, so the text never wraps around it.
+   The float's margin box is zero-width (width + negative margin cancel). */
+@media (min-width: 1100px) {
+  .pull-left.pull-out,
+  .pull-right.pull-out {
+    --gap: 12px;
+    --pw: min(var(--pull-w, 300px), calc((100vw - var(--column)) / 2 - 32px));
+    width: var(--pw);
+    /* --pull-shift nudges a drawing up/down (e.g. -50px) on wide screens only,
+       where it sits in the margin and can't collide with the text */
+    margin-top: calc(.3em + var(--pull-shift, 0px));
+  }
+  .pull-left.pull-out  { margin-left: calc(-1 * var(--pw) - var(--gap)); margin-right: var(--gap); }
+  .pull-right.pull-out { margin-right: calc(-1 * var(--pw) - var(--gap)); margin-left: var(--gap); }
+}
+
+.clear { clear: both; }
+
+.figure-center {
+  margin: 2em auto;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.rounded { border-radius: 36px; }
+
+/* Rows of three images */
+.image-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: end;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.image-row--bleed { max-width: none; padding: 0; gap: 16px; }
+.image-row img { width: 100%; }
+.image-row--covers { max-width: 1000px; align-items: start; }
+
+/* Equal-height row: each image's flex-grow is set to its aspect ratio
+   (width / height) inline, so all three end up the same height while
+   filling the row edge to edge inside the side margins */
+.image-row--equal {
+  display: flex;
+  gap: 16px;
+  max-width: none;
+  padding: 0 24px;
+}
+.image-row--equal img { flex: var(--ar, 1) 1 0; min-width: 0; width: auto; }
+
+.full-bleed { margin: 2em -24px 0; }
+.full-bleed img { width: 100%; }
+
+.notice {
+  margin: 0 0 40px;
+  padding: 50px 24px;
+  background: var(--band);
+  font-size: 48px;
+  text-align: center;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--footer);
+  color: var(--footer-text);
+  font-family: "Copse", Georgia, serif;
+  font-size: 13px;
+  padding: 36px 24px;
+}
+.site-footer p { max-width: 1180px; margin: 0 auto; padding-left: 180px; }
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 800px) {
+  body { font-size: 19px; }
+  .site-header { justify-content: center; text-align: center; }
+  .site-name { font-size: 30px; }
+  .nav > ul { justify-content: center; }
+  .nav a { font-size: 16px; padding: 2px 8px; }
+  .page-title { font-size: 44px; padding: 32px 16px 48px; }
+  .hero, .hero--tall { min-height: 320px; }
+  .hero-split { flex-direction: column; }
+  .hero-split img { width: 60%; }
+  .hero-split .page-title { font-size: 34px; text-align: center; padding-bottom: 24px; }
+  .quote-band { font-size: 24px; padding: 20px 16px; }
+  .section { padding: 32px 16px 48px; }
+  .pull-left, .pull-right {
+    float: none;
+    width: 70%;
+    max-width: 320px;
+    margin: 1em auto 1.5em;
+  }
+  .image-row { grid-template-columns: 1fr; max-width: 420px; padding: 0 16px; }
+  .image-row--bleed { padding: 0; }
+  .image-row--equal { flex-direction: column; align-items: center; }
+  .image-row--equal img { flex: none; width: 100%; }
+  .full-bleed { margin: 2em -16px 0; }
+  .notice { font-size: 30px; }
+  .site-footer p { padding-left: 0; text-align: center; }
+}
