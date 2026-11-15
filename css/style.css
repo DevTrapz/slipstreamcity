@@ -1,7 +1,7 @@
 /* Slipstream City — shared styles */
 
 :root {
-  --canvas: #f7f7f7;
+  --canvas: #fcfcfc;
   --text: #333;
   --band: #c6c6c5;
   --footer: #333;
@@ -9,7 +9,7 @@
   --header-text: #f0ffff;
   --serif: "Josefin Slab", Georgia, serif;
   --title: Georgia, "Times New Roman", serif;
-  --column: 680px;
+  --column: 760px;
 }
 
 * { box-sizing: border-box; }
@@ -18,6 +18,12 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  /* Sticky footer: main grows to fill, so the footer sits at the bottom of
+     the viewport even on short pages */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--canvas);
   color: var(--text);
   font-family: var(--serif);
@@ -174,6 +180,9 @@ a { color: inherit; }
 
 /* ---------- Main content ---------- */
 
+main { flex: 1 0 auto; }
+.site-footer { flex-shrink: 0; }
+
 .section { padding: 48px 24px 64px; }
 
 .content {
@@ -217,6 +226,23 @@ a { color: inherit; }
   .pull-right { margin-right: -300px; }
 }
 
+/* .pull-out: drawing sits entirely in the side margin, its inner edge
+   lined up against the text column, so the text never wraps around it.
+   The float's margin box is zero-width (width + negative margin cancel). */
+@media (min-width: 1100px) {
+  .pull-left.pull-out,
+  .pull-right.pull-out {
+    --gap: 12px;
+    --pw: min(var(--pull-w, 300px), calc((100vw - var(--column)) / 2 - 32px));
+    width: var(--pw);
+    /* --pull-shift nudges a drawing up/down (e.g. -50px) on wide screens only,
+       where it sits in the margin and can't collide with the text */
+    margin-top: calc(.3em + var(--pull-shift, 0px));
+  }
+  .pull-left.pull-out  { margin-left: calc(-1 * var(--pw) - var(--gap)); margin-right: var(--gap); }
+  .pull-right.pull-out { margin-right: calc(-1 * var(--pw) - var(--gap)); margin-left: var(--gap); }
+}
+
 .clear { clear: both; }
 
 .figure-center {
@@ -240,6 +266,17 @@ a { color: inherit; }
 .image-row--bleed { max-width: none; padding: 0; gap: 16px; }
 .image-row img { width: 100%; }
 .image-row--covers { max-width: 1000px; align-items: start; }
+
+/* Equal-height row: each image's flex-grow is set to its aspect ratio
+   (width / height) inline, so all three end up the same height while
+   filling the row edge to edge inside the side margins */
+.image-row--equal {
+  display: flex;
+  gap: 16px;
+  max-width: none;
+  padding: 0 24px;
+}
+.image-row--equal img { flex: var(--ar, 1) 1 0; min-width: 0; width: auto; }
 
 .full-bleed { margin: 2em -24px 0; }
 .full-bleed img { width: 100%; }
@@ -286,6 +323,8 @@ a { color: inherit; }
   }
   .image-row { grid-template-columns: 1fr; max-width: 420px; padding: 0 16px; }
   .image-row--bleed { padding: 0; }
+  .image-row--equal { flex-direction: column; align-items: center; }
+  .image-row--equal img { flex: none; width: 100%; }
   .full-bleed { margin: 2em -16px 0; }
   .notice { font-size: 30px; }
   .site-footer p { padding-left: 0; text-align: center; }
